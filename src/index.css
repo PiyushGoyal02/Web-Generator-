@@ -97,7 +97,7 @@ code {
 }
 
 .imagetextcontantbox{
-  border: 2px solid black;
+  /* border: 2px solid black; */
   padding: 1%;
   display: flex;
   justify-content: center;
@@ -105,12 +105,13 @@ code {
   flex-direction: column;
   margin: 2%;
   border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
 }
 
 .imagess{
   border-radius: 10px;
   padding: 2%;
-  width: 300px;
+  width: 320px;
   cursor: pointer;
 }
 
@@ -119,8 +120,83 @@ code {
 }
 
 .inputTag{
-  padding: 0.5%;
-  width: 25%;
+  padding: 1%;
+  width: 40%;
+  border-radius: 20px;
+  margin-left: 30%;
+  background-color: #ECE6F0;
+  border-style: none;
+  font-size: larger;
+  color: #49454F;
+}
+
+.leftarrowdiv{
+  height: 50px;
+  width: 50px;
+  /* border: 1px solid black; */
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 6%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  cursor: pointer;
+}
+
+.arrowleft{
+  font-size: x-large;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8B5CF6;
+}
+
+.mindfullnessdiv{
+  margin: 2%;
+  border: 2px solid #dadada;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
   border-radius: 10px;
-  margin-left: 35%;
+}
+
+.mindfulnessName{
+  margin-left: 8%;
+  font-size: 42px;
+}
+
+.mindfulnessPic{
+  margin-top: 1%;
+  margin-left: 8%;
+  width: 85%;
+}
+
+.intro{
+  font-size: 22px;
+  font-weight: bold;
+  color: #1E293B;
+  margin-left: 8%;
+  margin-top: 2%;
+}
+
+.introDiscription{
+  word-spacing: 4.5px;
+  font-size: larger;
+  font-weight: 200;
+  color: #1E293B;
+  margin-left: 8%;
+  margin-top: 1.5%;
+}
+
+.start-excer{
+  margin-left: 8%;
+  margin-top: 3%;
+  padding: 1%;
+  background-color: #8B5CF6;
+  border-style: none;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  width: 10%;
+  cursor: pointer;
 }

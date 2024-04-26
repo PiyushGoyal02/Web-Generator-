@@ -2,10 +2,21 @@ import { FaRegHeart } from "react-icons/fa";
 import black from '../Assets/BlackMan.png'
 import sign from '../Assets/Sign.png'
 import text from '../Assets/Text.png'
+import { useNavigate } from "react-router-dom";
+
 
 function HomePage({jsondata}){
+
+    const navigater = useNavigate();
+
+    function clickhandler(){
+        navigater('/Mindfulness1')
+    }
+
+        
     return (
         <div>
+
             <div className="Top-Hading">
                 <div className="sign-text">
                     <img src={sign}></img>
@@ -26,24 +37,32 @@ function HomePage({jsondata}){
             <div className="boxcontantdiv">
                 <h1 className="HealeefyHading">{jsondata.Heading}</h1>
                 <p className="description">{jsondata.description}</p>
-                {
-                    jsondata.tiles.map((value) => {
-                        return(
-                            <div className="imagehadingdiv">
-                                <div className="imagetextcontantbox">
-                                    <img className="imagess" src={value.img_url}></img>
-                                    {/* <hr></hr> */}
-                                    <p className="imageKaText">{value.name}</p>
+                
+                    {
+                        jsondata.tiles.map((value) => {
+                            return(
+                                <div key={value.id} className="imagehadingdiv">
+                                    <div className="imagetextcontantbox">
+                                        <img className="imagess" src={value.img_url}></img>
+                                        {/* <hr></hr> */}
+                                        <p className="imageKaText">{value.name}</p>
+                                    </div>
+                                    <div onClick={clickhandler}>
+                                        {
+                                            value.id[2]
+                                        }
+                                    </div>
                                 </div>
-                            </div>
-                        )
-                    })
-                }
+                            )
+                        })
+                    }
 
 
             </div>
-                <input className="inputTag" placeholder="write your problem.."></input>
-
+            
+                <div>
+                    <input className="inputTag" placeholder="Type Here to make changes or add new questions"></input>
+                </div>
 
         </div>
     )
