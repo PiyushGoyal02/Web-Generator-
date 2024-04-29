@@ -14,6 +14,11 @@
                     "sub_heading": "Intro",
                     "description": "Mindfulness exercises involve practicing present-moment awareness and non-judgmental observation of your thoughts, sensations, and emotions. Through activities like mindful breathing, body scans, or focusing on sensory experiences, you can enhance self-awareness, reduce stress, and promote mental clarity and emotional balance on your own.",
                     "button_label": "Start exercises"
+                },
+
+                {
+                    "description":"Please take a moment to settle into a comfortable position, ensuring there are no distractions. Let your attention be drawn to your breath for this exercise. Inhale gently. Pause briefly. Exhale slowly. Pause again. Be mindful of the sensation of air entering and leaving your lungs, as well as the quiet intervals between each breath. It's best to perform this exercise while seated upright, feet firmly planted on the ground. You may choose to keep your eyes closed or open, maintaining a gentle, relaxed gaze. When you feel prepared, initiate the exercise by pressing the designated start button.",
+                    "length":"Choose exercise length"
                 }
 
             ]

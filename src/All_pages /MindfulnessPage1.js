@@ -1,6 +1,6 @@
 import { FaArrowLeft } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
-import black from '../Assets/BlackMan.png'
+import black from '../Assets/BlackMan.jpg'
 import sign from '../Assets/Sign.png'
 import text from '../Assets/Text.png'
 import { useNavigate } from "react-router-dom";
@@ -11,6 +11,10 @@ function MindfulnessPage1({jsondata}){
     const navigator = useNavigate();
     function ClickBackHandler(){
         navigator(-1);
+    }
+
+    function ClickButtonHandler(){
+        navigator('/Mindfulness2')
     }
 
     return(
@@ -43,7 +47,7 @@ function MindfulnessPage1({jsondata}){
                 <img className="mindfulnessPic" src={jsondata.tiles[0].pages[0].img_url}></img>
                 <p className="intro">{jsondata.tiles[0].pages[0].sub_heading}</p>
                 <p className="introDiscription">{jsondata.tiles[0].pages[0].description}</p>
-                <button className="start-excer">{jsondata.tiles[0].pages[0].button_label}</button>
+                <button onClick={ClickButtonHandler} className="start-excer">{jsondata.tiles[0].pages[0].button_label}</button>
             </div>
         </div>
     )

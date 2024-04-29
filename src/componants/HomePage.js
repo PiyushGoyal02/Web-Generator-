@@ -1,5 +1,5 @@
 import { FaRegHeart } from "react-icons/fa";
-import black from '../Assets/BlackMan.png'
+import black from '../Assets/BlackMan.jpg'
 import sign from '../Assets/Sign.png'
 import text from '../Assets/Text.png'
 import { useNavigate } from "react-router-dom";
@@ -7,10 +7,10 @@ import { useNavigate } from "react-router-dom";
 
 function HomePage({jsondata}){
 
-    const navigater = useNavigate();
+    const navigator = useNavigate()
 
-    function clickhandler(){
-        navigater('/Mindfulness1')
+    const clickHandler = (productId) => {
+        navigator('/Mindfulness1')
     }
 
         
@@ -38,25 +38,19 @@ function HomePage({jsondata}){
                 <h1 className="HealeefyHading">{jsondata.Heading}</h1>
                 <p className="description">{jsondata.description}</p>
                 
-                    {
-                        jsondata.tiles.map((value) => {
-                            return(
-                                <div key={value.id} className="imagehadingdiv">
-                                    <div className="imagetextcontantbox">
-                                        <img className="imagess" src={value.img_url}></img>
-                                        {/* <hr></hr> */}
-                                        <p className="imageKaText">{value.name}</p>
-                                    </div>
-                                    <div onClick={clickhandler}>
-                                        {
-                                            value.id[2]
-                                        }
-                                    </div>
+                {
+                    jsondata.tiles.map((value) => {
+                        return(
+                    
+                            <button key={value.id} className="imagehadingdiv">
+                                <div className="imagetextcontantbox">
+                                    <img onClick={clickHandler} className="imagess" src={value.img_url} alt={value.name}></img>
+                                    <p className="imageKaText">{value.name}</p>
                                 </div>
-                            )
-                        })
-                    }
-
+                            </button>
+                        )
+                    })
+                }
 
             </div>
             
@@ -69,3 +63,7 @@ function HomePage({jsondata}){
 }
 
 export default HomePage;
+
+
+
+
