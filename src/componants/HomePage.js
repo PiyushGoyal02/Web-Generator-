@@ -9,8 +9,13 @@ function HomePage({jsondata}){
 
     const navigator = useNavigate()
 
-    const clickHandler = (productId) => {
-        navigator('/Mindfulness1')
+    const funcode = (name) => {
+        return name.toLowerCase().replace(/ /g, '-');
+    }
+
+    function clickHandler (value){
+        const apnacode = funcode(value)
+        navigator(`/${apnacode}`)
     }
 
         
@@ -42,12 +47,12 @@ function HomePage({jsondata}){
                     jsondata.tiles.map((value) => {
                         return(
                     
-                            <button key={value.id} className="imagehadingdiv">
+                            <div key={value.id} className="imagehadingdiv">
                                 <div className="imagetextcontantbox">
-                                    <img onClick={clickHandler} className="imagess" src={value.img_url} alt={value.name}></img>
+                                    <img onClick={() => clickHandler (value.name)}  className="imagess" src={value.img_url} ></img>
                                     <p className="imageKaText">{value.name}</p>
                                 </div>
-                            </button>
+                            </div>
                         )
                     })
                 }
