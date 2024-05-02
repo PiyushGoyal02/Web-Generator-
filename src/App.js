@@ -13,8 +13,8 @@ function App() {
       {/* <HomePage jsondata={jsonData}/> */}
       <Routes>
         <Route path='/' element={<HomePage jsondata={jsonData}/>}></Route>
-        <Route path='/Mindfulness1' element={<Mindfulness jsondata={jsonData}/>}></Route>
-        <Route path='/Mindfulness2' element={<MindfulnessPage2 jsondata={jsonData}/>}></Route>
+        {/* <Route path='/Mindfulness1' element={<Mindfulness jsondata={jsonData}/>}></Route> */}
+        {/* <Route path='/Mindfulness2' element={<MindfulnessPage2 jsondata={jsonData}/>}></Route> */}
       </Routes>
     </div>
   );
