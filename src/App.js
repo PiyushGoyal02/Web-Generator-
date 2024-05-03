@@ -1,10 +1,9 @@
-import logo from './logo.svg';
+
 import './App.css';
-import HomePage from './componants/HomePage';
+import HomePage from './components/HomePage';
 import jsonData from './data.json';
 import { Route, Routes } from 'react-router-dom';
-import Mindfulness from './All_pages /MindfulnessPage1';
-import MindfulnessPage2 from './All_pages /MindfulnessPage2';
+import NewPage from './components/NewPage';
 
 function App() {
 
@@ -13,6 +12,7 @@ function App() {
       {/* <HomePage jsondata={jsonData}/> */}
       <Routes>
         <Route path='/' element={<HomePage jsondata={jsonData}/>}></Route>
+        <Route path='/page/:pageId' element={<NewPage/>}></Route>
         {/* <Route path='/Mindfulness1' element={<Mindfulness jsondata={jsonData}/>}></Route> */}
         {/* <Route path='/Mindfulness2' element={<MindfulnessPage2 jsondata={jsonData}/>}></Route> */}
       </Routes>
