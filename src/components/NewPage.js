@@ -11,8 +11,7 @@ function NewPage(){
 
     const location = useLocation();
     const { pageData } = location.state || {};
-    // console.log(pageData);
-
+    const { ValueName } = location.state || {}; 
 
     const navigator = useNavigate();
     function ClickBackHandler(){
@@ -20,7 +19,10 @@ function NewPage(){
     }
 
     function ClickButtonHandler(){
-        navigator('/Mindfulness2')
+        const PageId = pageData[1]
+        console.log(PageId)
+        navigator(`/page2/${ValueName}`, { state :{ PageId } })
+        // console.log(navigator(`/page2/${ValueName}`, {state :{ PageId } }))
     }
 
     return (
@@ -49,11 +51,11 @@ function NewPage(){
             </div>
 
             <div className="mindfullnessdiv">
-                <h1 className="mindfulnessName">{pageData ? pageData.header : "Header Not Found"}</h1>
-                <img className="mindfulnessPic" src={pageData ? pageData.img_url : "Image Not Found"}></img>
-                <p className="intro">{pageData ? pageData.sub_heading : "sub_heading Not Found"}</p>
-                <p className="introDiscription">{pageData ? pageData.description : "Description Not Found"}</p>
-                <button onClick={ClickButtonHandler} className="start-excer">{pageData ? pageData.button_label : "Button Not Found"}</button>
+                <h1 className="mindfulnessName">{pageData ? pageData[0].header : "Header Not Found"}</h1>
+                <img className="mindfulnessPic" src={pageData ? pageData[0].img_url : "Image Not Found"}></img>
+                <p className="intro">{pageData ? pageData[0].sub_heading : "sub_heading Not Found"}</p>
+                <p className="introDiscription">{pageData ? pageData[0].description : "Description Not Found"}</p>
+                <button onClick={ClickButtonHandler} className="start-excer">{pageData ? pageData[0].button_label : "Button Not Found"}</button>
             </div>
         </div>
     )

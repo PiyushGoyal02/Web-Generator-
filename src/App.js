@@ -4,6 +4,7 @@ import HomePage from './components/HomePage';
 import jsonData from './data.json';
 import { Route, Routes } from 'react-router-dom';
 import NewPage from './components/NewPage';
+import NewPageTwo from './components/NewPageTwo';
 
 function App() {
 
@@ -11,10 +12,9 @@ function App() {
     <div>
       {/* <HomePage jsondata={jsonData}/> */}
       <Routes>
-        <Route path='/' element={<HomePage jsondata={jsonData}/>}></Route>
-        <Route path='/page/:pageId' element={<NewPage/>}></Route>
-        {/* <Route path='/Mindfulness1' element={<Mindfulness jsondata={jsonData}/>}></Route> */}
-        {/* <Route path='/Mindfulness2' element={<MindfulnessPage2 jsondata={jsonData}/>}></Route> */}
+        <Route path='/MenuCard' element={<HomePage jsondata={jsonData}/>}></Route>
+        <Route path='/page1/:pageId' element={<NewPage/>}></Route>
+        <Route path='/page2/:pageId' element={<NewPageTwo/>}></Route>
       </Routes>
     </div>
   );

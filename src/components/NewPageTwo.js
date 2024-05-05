@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
@@ -7,19 +8,22 @@ import text from '../Assets/Text.png'
 import { useEffect, useState } from "react";
 import { FaPlay } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
-// import { MdOutlineReplay } from "react-icons/md";
 
-function MindfulnessPage2({jsondata}){
-    
-    const [time, setTime] = useState(0);
-  const [isRunning, setIsRunning] = useState(false);
+function NewPageTwo(){
 
-    const navigator = useNavigate();
+    const location = useLocation();
+    const { PageId } = location.state || {}
+    console.log("PageId", PageId)
 
     // Back Jane Kai liye
     function ClickBackHandler(){
         navigator(-1);
     }
+
+    const navigator = useNavigate();
+        
+    const [time, setTime] = useState(0);
+    const [isRunning, setIsRunning] = useState(false);
 
     useEffect(() => {
         let timerInterval;
@@ -38,7 +42,7 @@ function MindfulnessPage2({jsondata}){
         }
     
         return () => clearInterval(timerInterval);
-    }, [isRunning]);        // Jab Eski Value Change Ho Tab Update HOna Chahiye...
+    }, [isRunning]);        // Jab Eski Value Change Ho Tab Update Hona Chahiye...
 
     const handleTimeChange = (event) => {
         setTime(parseInt(event.target.value));
@@ -86,8 +90,8 @@ function MindfulnessPage2({jsondata}){
 
 
             <div className="mindfulnesspagetwodiv">
-                <p className="mindfultwodescription">{jsondata.tiles[0].pages[1].description}</p>
-                <p className="length">{jsondata.tiles[0].pages[1].length}</p>
+                <p className="mindfultwodescription">{PageId ? PageId.description : "Description Is Not Found"}</p>
+                <p className="length">{PageId ? PageId.length : "Length Is NOt Found"}</p>
                 <input onChange={handleTimeChange} value={time} className="rangeinput" type="range" min="09:00" max="18:00" class="slider" step="0.1" ></input>
 
                 <div className="circle">
@@ -106,4 +110,4 @@ function MindfulnessPage2({jsondata}){
     )
 }
 
-export default MindfulnessPage2;
+export default NewPageTwo;

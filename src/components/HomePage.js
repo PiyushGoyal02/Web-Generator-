@@ -23,9 +23,10 @@ function HomePage({jsondata}){
     function clickHandler (value){
         const ValueName = funcode(value.name)
         console.log(ValueName)
-        const pageData = value.pages[0];
+        const pageData = value.pages;
         console.log(pageData)
-        navigator(`/page/${ValueName}`, { state: { pageData } });
+        // navigator(`/page/${ValueName}`, { state: { pageData, ValueName } });
+        navigator(`/page1/${ValueName}`, { state: { pageData, ValueName } });
     }
     
     return (
