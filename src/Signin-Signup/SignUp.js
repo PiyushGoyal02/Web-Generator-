@@ -5,10 +5,9 @@ import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { FaEye,FaEyeSlash } from "react-icons/fa";
 
-function SignUp (){
+function SignUp ({ AccountType,setAccountType }){
 
-    const [AccountType, setAccountType] = useState('');
-
+    // this is use To Password/Test Type..
     const [invadidInput, setInvalidInput] = useState(false);
 
     return (

@@ -5,7 +5,7 @@ import text from '../Assets/Text.png'
 import { useNavigate } from "react-router-dom";
 
 
-function HomePage({jsondata}){
+function HomePage({ AccountType ,jsondata}){
 
     const navigator = useNavigate()
 
@@ -71,7 +71,11 @@ function HomePage({jsondata}){
             </div>
             
             <div>
-                <input className="inputTag" placeholder="Type Here to make changes or add new questions"></input>
+
+                {
+                    AccountType === "Admin" ? "" : <input className="inputTag" placeholder="Type Here to make changes or add new questions"></input>
+                }
+                {/* <input className="inputTag" placeholder="Type Here to make changes or add new questions"></input> */}
             </div>
 
         </div>
