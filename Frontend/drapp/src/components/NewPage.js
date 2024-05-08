@@ -10,37 +10,33 @@ import { useNavigate } from "react-router-dom";
 
 function NewPage(){
 
+    // const {pageId} = useParams
     const location = useLocation();
-
-    // Data Fetched HomePage.js (pageData and index)
+    // const navigator =useNavigate();
     const { pageData, index } = location.state || { pageData: [], index: 0 };
-
-    // Data Fetched HomePage.js (ValueName)
+    // const { pageData } = location.state || {};
     const { ValueName } = location.state || {}; 
 
-    // This is a Navigator Onclick Arrow One Step Back
     const navigator = useNavigate();
     function ClickBackHandler(){
         navigator(-1);
     }
 
-    // Pages Index Ka Current Index 
     const currentPage = pageData[index];
-
-
     const hasNext = index < pageData.length - 1;
 
-    // Button onclick Same Route But Data Change
     const handleNext = () => {
         if (hasNext) {
             navigator(`/page1/${ValueName}`, { state: { pageData, index: index + 1 } });
         }
     };
 
-    // Replace `\n` with `<br>` in the description
-    const formatDescription = (description) => {
-        return description ? description.replace(/\n/g, '<br>') : '';
-    };
+    // function ClickButtonHandler(){
+    //     const PageId = pageData[1]
+    //     console.log(PageId)
+    //     // navigator(`/page2/${ValueName}`, { state :{ PageId } })
+    //     // console.log(navigator(`/page2/${ValueName}`, {state :{ PageId } }))
+    // }
 
     return (
         <div>
@@ -68,14 +64,13 @@ function NewPage(){
             </div>
 
             <div className="mindfullnessdiv">
-                <h1 className="mindfulnessName">{pageData ? pageData[0].title : ""}</h1>
-                <img className="mindfulnessPic" src={pageData ? pageData[0].img_url : ""}></img>
-                <p className="intro">{pageData ? pageData[0].sub_heading : ""}</p>
-                <p className="introDiscription" dangerouslySetInnerHTML={{ __html: formatDescription(currentPage.description) }}></p>
+                <h1 className="mindfulnessName">{pageData ? pageData[0].header : "Header Not Found"}</h1>
+                <img className="mindfulnessPic" src={pageData ? pageData[0].img_url : "Image Not Found"}></img>
+                <p className="intro">{pageData ? pageData[0].sub_heading : "sub_heading Not Found"}</p>
                 {/* <p className="introDiscription">{pageData ? pageData[0].description : "Description Not Found"}</p> */}
-                {/* <p className="introDiscription">{currentPage.description}</p> */}
+                <p className="introDiscription">{currentPage.description}</p>
                 {/* <button onClick={handleNext} className="start-excer">{pageData ? pageData[0].button_label : "Button Not Found"}</button> */}
-                {/* <button onClick={handleNext} className="start-excer" >{pageData ? pageData[0].button_label : ""}</button> */}
+                <button onClick={handleNext} className="start-excer" >{pageData ? pageData[0].button_label : "Button Not Found"}</button>
 
             </div>
         </div>
