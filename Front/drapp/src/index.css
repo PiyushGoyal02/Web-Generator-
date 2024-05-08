@@ -1,0 +1,568 @@
+/* body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button{
+  cursor: pointer;
+}
+
+::selection{
+  background-color: black;
+  color: white;
+}
+
+.Top-Hading{
+  display: flex;
+  justify-content: space-between;
+  margin: 1%;
+  padding: 1%;
+  border-bottom: 1px solid black;
+}
+
+.sign-text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.heartlogo-blackman{
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .blackmandiv{
+  height: 70%;
+  width: 35%;
+  border-radius: 100%;
+  border: 1px solid black;
+} */
+
+.redheart{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: larger;
+  cursor: pointer;
+}
+
+.blackman{
+  height: 50px;
+  width: 100%;
+  border-radius: 100%;
+}
+
+.boxcontantdiv{
+  height: 500px;
+  border: 2px solid black;
+  padding: 1%;
+  margin: 2%;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
+}
+
+.HealeefyHading{
+  margin-bottom: 1%;
+  font-size: 40px;
+  margin-left: 5%;
+}
+
+.description{
+  font-size: 25px;
+  margin-left: 5%;
+}
+
+.imagehadingdiv{
+  border-style: none;
+  /* box-shadow: none; */
+  cursor: pointer;
+  margin: 1%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagetextcontantbox{
+   /* border: 2px solid black; */
+   padding: 1%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   margin: 2%;
+   border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+
+.imagess{
+  border-radius: 10px;
+  padding: 2%;
+  width: 200px;
+  cursor: pointer;
+}
+
+.imageKaText{
+  font-size: 18px;
+}
+
+.inputTag{
+  padding: 1%;
+  width: 40%;
+  border-radius: 20px;
+  margin-left: 30%;
+  background-color: #ECE6F0;
+  border-style: none;
+  font-size: larger;
+  color: #49454F;
+}
+
+.leftarrowdiv{
+  height: 50px;
+  width: 50px;
+  /* border: 1px solid black; */
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 6%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  cursor: pointer;
+}
+
+.arrowleft{
+  font-size: x-large;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8B5CF6;
+}
+
+.mindfullnessdiv{
+  margin: 2%;
+  border: 2px solid #dadada;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+.mindfulnessName{
+  margin-left: 8%;
+  font-size: 42px;
+}
+
+.mindfulnessPic{
+  margin-top: 1%;
+  margin-left: 8%;
+  width: 85%;
+}
+
+.intro{
+  font-size: 22px;
+  font-weight: bold;
+  color: #1E293B;
+  margin-left: 8%;
+  margin-top: 2%;
+}
+
+.introDiscription{
+  word-spacing: 4.5px;
+  font-size: larger;
+  font-weight: 200;
+  color: #1E293B;
+  margin-left: 8%;
+  margin-top: 1.5%;
+}
+
+.start-excer{
+  margin-left: 8%;
+  margin-top: 3%;
+  padding: 1%;
+  background-color: #8B5CF6;
+  border-style: none;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  width: 10%;
+  cursor: pointer;
+}
+
+.mindfulnesspagetwodiv{
+  border: 2px solid #dadada;
+  padding: 2%;
+  margin: 1%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.mindfultwodescription{
+  font-size: larger;
+  font-weight: 100;
+  word-spacing: 4px;
+}
+
+.length{
+  margin-top: 2%;
+  font-size: larger;
+  font-weight: bold;
+}
+
+
+.circle{
+  margin-top: 2%;
+  width: 18%;
+  height: 250px;
+  border-radius: 100%;
+  border: 5px solid #dadada;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.timecount{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #7C3AED;
+  font-weight: bold;
+  font-size: 35px;
+}
+
+.remaining{
+  margin-top: 2%;
+  font-size: 14px;
+}
+
+.Icons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 1%;
+}
+
+.SingleSingleIconDiv{
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  border-radius: 100px;
+  width: 25px;
+  border: 1px solid black;
+}
+
+.Icons .SingleSingleIconDiv p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+}
+
+
+/* Sign In */
+.signin-TopHading{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2%;
+  border-bottom: 2px solid #dadada;
+}
+
+.Link{
+  margin: 5px;
+  font-size: 23px;
+  color: #1E293B;
+  font-weight: 500;
+  transition: 0.5s;
+  padding: 15px;
+  text-decoration: none;
+}
+
+.Link:hover{
+  border-radius: 15px;
+  transition: 0.5s;
+  background-color: #8B5CF6;
+  color: white;
+  padding:8px ;
+  cursor: pointer;
+}
+
+.Input-labels{
+  padding: 2%;
+  border: 2px solid #dadada;
+  width: 30%;
+  height: 470px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  border-radius: 15px;
+}
+
+.login-top-hading{
+  margin-bottom: 5%;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-labels{
+  display: flex;
+  flex-direction: column;
+}
+
+.input-Tag-Email-Pass{
+  border-color: #8B5CF6;
+  background-color: #ECE6F0;
+  border-style: none;
+  width: 95%;
+  padding: 2.5%;
+  margin-bottom: 2%;
+  border-radius: 10px;
+}
+
+.input-Tag-Email-Pass::placeholder{
+  color: #49454F;
+  font-size: 15px;
+}
+
+.email-password-input-hading-text{
+  color: #1E293B;
+  font-size: large;
+  margin-bottom: 3%;
+}
+
+.eye{
+  margin-left: 1%;
+  font-size: larger;
+  cursor: pointer;
+}
+
+.password-input-eyeIcon{
+  display: flex;
+  align-items: center;
+}
+
+.forgot-your-password{
+  margin-top: 1%;
+  color: #1E293B;
+  cursor: pointer;
+  display: flex;
+  justify-content: end;
+}
+
+.Signin-createNewAccount{
+  margin-top: 3.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.SignIn-Button{
+  padding: 2%;
+  width: 100%;
+  color: #FFFFFF;
+  background-color: #8B5CF6;
+  font-size: large;
+  font-weight: bold;
+  border-radius: 5px;
+  border-style: none;
+  margin-bottom: 3%;
+}
+
+.Create-New-Account{
+  padding: 2%;
+  width: 100%;
+  color: #1E293B;
+  font-size: large;
+  font-weight: bold;
+  border-radius: 5px;
+  border-style: none;
+}
+
+.Line-OR-TopDiv{
+  
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin-top: 5%;
+  column-gap: 8px;
+}
+
+.LeftLine{
+  width: 100%;
+  min-height: 2px;
+  background-color: #010203;
+}
+
+.RightLine{
+  width: 100%;
+  min-height: 2px;
+  background-color: #010203;
+}
+
+.google-Button{
+  margin-top: 3%;
+  padding: 2%;
+  width: 100%;
+  color: #1E293B;
+  font-size: large;
+  font-weight: bold;
+  border-radius: 5px;
+  border-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+
+/* SignUp */
+.SignUp-Box-Div{
+  margin-top: 1%;
+  padding: 1.5%;
+  border: 2px solid #dadada;
+  width: 45%;
+  height: 580px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  border-radius: 15px;
+}
+
+.SignUp-Top-Hading{
+  margin-bottom: 3%;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.TwoButtonDin{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  translate: 90% ;
+  gap: 35px;
+  border: 2px solid #dadada;
+  width: 35%;
+  padding: 0.5%;
+  border-radius: 10px;
+  background-color: #ECE6F0;
+  color: #1E293B;
+}
+
+.AdminUserLabel{
+  font-size: x-large;
+}
+
+.Contant-Div{
+  display: flex;
+  justify-content: space-around;
+  gap: 8px;
+  margin-top: 3%;
+}
+
+.FirstName-Div{
+  display: flex;
+  flex-direction: column;
+}
+
+.LastName-Div{
+  display: flex;
+  flex-direction: column;
+}
+
+.labelsTagss{
+  font-size: 19px;
+  color: #1E293B;
+}
+
+.labelTag-Eye{
+  display: flex;
+  justify-content: space-between;
+}
+
+.labelTag-Eye span{
+  margin-right: 10%;
+}
+
+.inputTagss{
+  border-radius: 5px;
+  margin-top: 1%;
+  height: 35px;
+  width: 20vw;
+  padding: 0.6%;
+  border-color: #8B5CF6;
+  background-color: #ECE6F0;
+  border-style: none;
+  padding: 3%;
+}
+
+.inputTagss::placeholder{
+  color: #49454F;
+  font-size: 15px;
+}
+
+.buttonSignup{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SignUp-Button{
+  padding: 2%;
+  width: 80%;
+  color: #FFFFFF;
+  background-color: #8B5CF6;
+  font-size: large;
+  font-weight: bold;
+  border-radius: 5px;
+  border-style: none;
+  margin-top: 4%;
+}
+
+.google-Button-SignUp{
+  margin-top: 2%;
+  padding: 2%;
+  width: 80%;
+  color: #1E293B;
+  font-size: large;
+  font-weight: bold;
+  border-radius: 5px;
+  border-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
