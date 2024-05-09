@@ -24,12 +24,8 @@ function HomePage({ AccountType, jsondata}){
     // onclick karna Jab ham ek single pic par click kare
     function clickHandler (value){
         const ValueName = funcode(value.name)
-        console.log(ValueName)
         const pageData = value.pages;
-        console.log(pageData)
-        console.log(pageData.length)
         if(pageData.length > 0){
-            // navigator(`/page1/${ValueName}`, { state: { pageData, ValueName } });
             navigator(`/page1/${ValueName}`, { state: { pageData, ValueName, index : 0 } });
         }
     }
@@ -37,12 +33,11 @@ function HomePage({ AccountType, jsondata}){
     // Input Tag Value Fetch Karna
     const [query, setQuery] = useState("");
 
-    // const [tilesdata,setNewJSONData] = useState(jsondata)
-    // console.log( tilesdata);
 
-    const [tilesData, setNewJSONData] = useState(() => {
-        const storedData = sessionStorage.getItem('tilesData');
-        return storedData ? JSON.parse(storedData) : jsondata;
+    // JSON.parse  <== Using Json String Data To Convert Array Ya Object Data
+    const [tilesData, setNewJSONData] = useState(() => {      // using useState with callback function
+        const storedData = sessionStorage.getItem('tilesData');    // Reading a data using sessionStorage.getItem
+        return storedData ? JSON.parse(storedData) : jsondata;  // storedData is present then return (JSON.parse(storedData)) Nhi to return jsondata
     });
 
     const externalImgUrls = [
@@ -64,7 +59,7 @@ function HomePage({ AccountType, jsondata}){
         if(event.key === "Enter"){
             try{
                 const responce = await axios.get(
-                    "http://18.116.140.175:8000/documents?query=${encodeURIComponent(query)",
+                    `http://18.116.140.175:8000/documents?query=${encodeURIComponent(query)}`,
                     {
                         headers : {
                             'accept': 'application/json'
@@ -80,28 +75,18 @@ function HomePage({ AccountType, jsondata}){
                 }));
 
 
-                console.log("updateData", updateData)
-
-                // const mergeData = {
-                //     ...tilesData,
-                //     // img_url : getRandomImageUrl(),
-                //     Heading : newData.Heading,
-                //     description: newData.description,
-                //     tiles : newData.tiles
-                // }
+                console.log(updateData, "updateData")
 
                 const mergeData = {
                     ...responce.data,
-                    // img_url : getRandomImageUrl(),
                     tiles : updateData
                 }
                 
-                console.log(mergeData)
+                console.log(mergeData, "mergeData")
 
                 setNewJSONData( mergeData);
-                // sessionStorage.setItem('tilesData', JSON.stringify(mergeData)); // Save to session storage
+                sessionStorage.setItem('tilesData', JSON.stringify(mergeData)); // Save to session storage
 
-                // console.log("JSON-Data", setNewJSONData)
             }catch(error){
                 console.error('Error fetching new data:', error);
             }
@@ -133,21 +118,21 @@ function HomePage({ AccountType, jsondata}){
 
                 <div>
                     <h1 className="HealeefyHading">{tilesData ? tilesData.Heading : ""}</h1>
-                    <p className="description">{tilesData.description}</p>
+                    <p className="description">{tilesData ? tilesData.description : ""}</p>
                 </div>
 
                 {
-                        tilesData.tiles.map((value) => {
-                            return(
-                                <div key={value.id} className="imagehadingdiv">
-                                    <div className="imagetextcontantbox">
-                                        <img onClick={() => clickHandler (value)}  className="imagess" src={value.img_url} alt={value.name} ></img>
-                                        <p className="imageKaText">{value.name}</p>
-                                    </div>
+                    tilesData.tiles.map((value, index) => {
+                        return(
+                            <div key={index} className="imagehadingdiv">
+                                <div className="imagetextcontantbox">
+                                    <img onClick={() => clickHandler (value)}  className="imagess" src={value.img_url} alt={value.name} ></img>
+                                    <p className="imageKaText">{value.name}</p>
                                 </div>
-                            )
-                        })
-                    }
+                            </div>
+                        )
+                    })
+                }
 
             </div>
             

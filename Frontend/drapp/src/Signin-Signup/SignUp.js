@@ -10,16 +10,17 @@ import toast from "react-hot-toast";
 
 function SignUp ({ AccountType,setAccountType }){
 
-    // This use to Navige (MenuCard) file par
+    // This use to Navigate (MenuCard) file par
     const navigate = useNavigate();
 
     // this is use To Password/Test Type..
-    const [invadidInput, setInvalidInput] = useState(false);
+    const [invalidInput, setInvalidInput] = useState(false);
 
+    //  Input Value fetch useState
     const [formdata, setformdata] = useState({firstName:"", lastName:"", email:"", password:"", confirmPassword:"", dateOfBirth:"", accountType:"User"})
 
     // OnChange Input Tag 
-    function ValueChnageHandler(event){
+    function ValueChangeHandler(event){
         setformdata(preformdata => {
             return {
                 ...preformdata,
@@ -53,10 +54,10 @@ function SignUp ({ AccountType,setAccountType }){
         } catch (error) {
             console.error("Error during signup:", error.response ? error.response.data : error.message);
             toast.error(error.message)
-            // setMessage(error.response?.data?.message || "Error during signup.");
         }
     };
 
+    // Value Fetched Radio Button 
     const handleAccountTypeChange = (type) => {
         setAccountType(type);
         setformdata((prevFormData) => ({
@@ -100,45 +101,44 @@ function SignUp ({ AccountType,setAccountType }){
                         </div>
                     </div>
 
-                    <div className="Contant-Div">
+                    <div className="Content-Div">
                         <div className="FirstName-Div">
                             <label className="labelsTagss" htmlFor="firstName"> First Name </label>
-                            <input required type="text" onChange={ValueChnageHandler} value={formdata.firstName} className="inputTagss" name="firstName" id="firstName" placeholder="Enter First Name"></input>
+                            <input required type="text" onChange={ValueChangeHandler} value={formdata.firstName} className="inputTagss" name="firstName" id="firstName" placeholder="Enter First Name"></input>
                         </div>
 
                         <div className="LastName-Div">
                             <label className="labelsTagss" htmlFor="lastName"> Last Name </label>
-                            <input required type="text" onChange={ValueChnageHandler} value={formdata.lastName} className="inputTagss" name="lastName" id="LastName" placeholder="Enter Last Name"></input>
+                            <input required type="text" onChange={ValueChangeHandler} value={formdata.lastName} className="inputTagss" name="lastName" id="LastName" placeholder="Enter Last Name"></input>
                         </div>
                     </div>
 
-                    <div className="Contant-Div">
+                    <div className="Content-Div">
                         <div className="FirstName-Div">
                             <label className="labelsTagss" htmlFor="email"> Email Address </label>
-                            <input required type="email" onChange={ValueChnageHandler} value={formdata.email} className="inputTagss" name="email" id="email" placeholder="Enter Your Email"></input>
+                            <input required type="email" onChange={ValueChangeHandler} value={formdata.email} className="inputTagss" name="email" id="email" placeholder="Enter Your Email"></input>
                         </div>
 
                         <div className="LastName-Div">
                             <label className="labelsTagss" htmlFor="dateOfBirth"> Date Of Birth </label>
-                            <input required type="date" onChange={ValueChnageHandler} value={formdata.dateOfBirth} className="inputTagss" name="dateOfBirth" id="dateOfBirth" placeholder="Enter Your DOB"></input>
+                            <input required type="date" onChange={ValueChangeHandler} value={formdata.dateOfBirth} className="inputTagss" name="dateOfBirth" id="dateOfBirth" placeholder="Enter Your DOB"></input>
                         </div>
                     </div>
 
-                    <div className="Contant-Div">
+                    <div className="Content-Div">
                         <div className="FirstName-Div">
                             <div className="labelTag-Eye">
                                 <label className="labelsTagss" htmlFor="password"> Password </label>
-                                <span className='eye' onClick={() => setInvalidInput((pre) => !pre)}> {invadidInput ? (<FaEye />) : (<FaEyeSlash />)}</span>
+                                <span className='eye' onClick={() => setInvalidInput((pre) => !pre)}> {invalidInput ? (<FaEye />) : (<FaEyeSlash />)}</span>
                             </div>
-                            <input required onChange={ValueChnageHandler} value={formdata.password} className="inputTagss" type={invadidInput === false ? "password": "text"} name="password" id="password" placeholder="Enter Your Password"></input>
+                            <input required onChange={ValueChangeHandler} value={formdata.password} className="inputTagss" type={invalidInput === false ? "password": "text"} name="password" id="password" placeholder="Enter Your Password"></input>
                         </div>
 
                         <div className="LastName-Div">
                             <div className="labelTag-Eye">
                                 <label className="labelsTagss" htmlFor="confirmPass"> Confirm Password </label>
-                                {/* <span className='eye' onClick={() => setInvalidInput((pre) => !pre)}> {invadidInput ? (<FaEye />) : (<FaEyeSlash />)}</span> */}
                             </div>
-                            <input required onChange={ValueChnageHandler} value={formdata.confirmPassword} className="inputTagss" type={invadidInput === false ? "password": "text"} name="confirmPassword" id="confirmPass" placeholder="Confirm Password"></input>
+                            <input required onChange={ValueChangeHandler} value={formdata.confirmPassword} className="inputTagss" type={invalidInput === false ? "password": "text"} name="confirmPassword" id="confirmPass" placeholder="Confirm Password"></input>
                         </div>
                     </div>
 

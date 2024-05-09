@@ -52,7 +52,7 @@ exports.isUser = async (req, res, next) => {
             return res.status(403).json(
                 {
                     success:false,
-                    message:"Acount Type Missing"
+                    message:"Account Type Missing"
                 }
             )
         }
@@ -96,7 +96,7 @@ exports.isAdmin = async (req, res, next) => {
             return res.status(403).json(
                 {
                     success:false,
-                    message:"Acount Type Missing"
+                    message:"Account Type Missing"
                 }
             )
         }

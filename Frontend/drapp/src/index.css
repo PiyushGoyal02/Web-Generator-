@@ -486,7 +486,7 @@ button{
   font-size: x-large;
 }
 
-.Contant-Div{
+.Content-Div{
   display: flex;
   justify-content: space-around;
   gap: 8px;

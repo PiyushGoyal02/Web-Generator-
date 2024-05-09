@@ -52,7 +52,6 @@ function SignIn(){
         } catch (error) {
           toast.error(error.message)
           console.error("Error during sign-in:", error.response ? error.response.data : error.message);
-        //   setMessage(error.response?.data?.message || "Error during sign-in.");
         }
       };
 

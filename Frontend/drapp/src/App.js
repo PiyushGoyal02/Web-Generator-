@@ -15,7 +15,6 @@ function App() {
 
   return (
     <div>
-      {/* <HomePage jsondata={jsonData}/> */}
       <Routes>
         <Route path='/' element={<SignIn/>}></Route>
         <Route path='/SignUp' element={<SignUp AccountType={AccountType} setAccountType={setAccountType} />}></Route>

@@ -22,6 +22,7 @@ function NewPageTwo(){
 
     const navigator = useNavigate();
         
+    
     const [time, setTime] = useState(0);
     const [isRunning, setIsRunning] = useState(false);
 
