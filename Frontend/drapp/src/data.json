@@ -18,7 +18,13 @@
 
                 {
                     "description":"Please take a moment to settle into a comfortable position, ensuring there are no distractions. Let your attention be drawn to your breath for this exercise. Inhale gently. Pause briefly. Exhale slowly. Pause again. Be mindful of the sensation of air entering and leaving your lungs, as well as the quiet intervals between each breath. It's best to perform this exercise while seated upright, feet firmly planted on the ground. You may choose to keep your eyes closed or open, maintaining a gentle, relaxed gaze. When you feel prepared, initiate the exercise by pressing the designated start button.",
-                    "length":"Choose exercise length"
+                    "length":"Choose exercise length",
+                    "Widgit":{
+                        "Name": "Timer",
+                        "Properties":{
+                            
+                        }
+                    }
                 }
 
             ]
@@ -30,9 +36,18 @@
             "img_url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIcAAABnCAYAAAAqo1GIAAAABHNCSVQICAgIfAhkiAAAABl0RVh0U29mdHdhcmUAZ25vbWUtc2NyZWVuc2hvdO8Dvz4AAAAxdEVYdENyZWF0aW9uIFRpbWUAV2VkbmVzZGF5IDI0IEFwcmlsIDIwMjQgMTA6MjQ6MTkgQU2a1i7/AAAGtUlEQVR4nO2cy28aVxSHf/PAHszDGNKA5agyyKkaVThKNk2WlvIPpLsmu/4H3rf77rpP1+22zSqbSlnauzaxFKImxbSyFXADOIN5uMyjiwk2EE9sbPA9wz2fNJLHPHTmzjf3eS7KXy8cFwzTh6oCswagig6EoYfjAO0Wy8F8BJaD8YXlYHxhORhfWA7GF5aD8YXlYHxhORhfWA7GF5aD8YXlYHxhORhfWA7GF5aD8YXlYHzRRQfQT6dpobBRQWmrhv1KGwBQ32ujc9DFYi4+8N7l1SQAwIiEsJiLAQAyuTiMiJhLKm3VAAD1Shv7e17s5aKJzoE18L7trRqy+eTReSYXw3I+iRt305cX7BlRqGSCPf35NZ7+9Hps39e7AUZUR6ZPrEw2hnA0NNJ3vSk20Gl2AQCdgy7KxQYAT9yexBfFiOi4v54nJQkJOZ48KmDj8d+iwyDB/fU8bt1bEh0GAAJ9jnKxwWL08eRRAZ2mdfobLwHhchQ2K6JDIEWnaWH7eVV0GAAIyFEumqJDIEd5uyE6BAAE5BjuzTN0EC5H5v0wlDnGiIw2mpoUwuVIpOdEh0CORSIPjHA5bty5KjoEUhgRHct9k2QiES5HIh0emDGUHUqTYMLlAIC1hyuiQyDD2gM6ZUFCDm9tgZuXtYcrSKTDosM4goQcAHB/fZVUwVw22XySVK0BEJLDiOh48O1tYauqIsnkYvj6u9uiw/gAMnIAXiF98/2XUglC+ZpJyQEcF5YMk2PZfJKsGACRJfuT6DQt/PLDcxQ29kSHMhHWHq6Q62MMQ1aOHoWNCp78+HJsSTWiyeRi+Gp9NRA1I3k5AK8W2XhcwsavJTK5DqOSSIex9mCFTCLPWQiEHD2CKEkQpegRKDn6+f23XbzcrJDtk9y6t4Rb95bIrJOch8DK0WO/0kZhcw+lrapQUYyIjuxqEp/fSePG3TTZEcgoBF6OYUpbNWxv1VB6XsObojmx5ieRDmMxF8NyPoVsPhmIDuaoTJ0cw3SaFspF82h7Qf9eko9tLcjkYgi/T7pJpMPecTWMhXRY6P6Yy2Tq5WDOD7kZUoYO0183noLjALblHQoALQRoOqAooiMTj7RyWF3gYN9Fpwm4Qw2rqgLhGBCdV6BqYuKjgJRytBpAo+bCcU5+3XGA5jug03Qxf0XBrKRpJtL1OVom8O6tvxj92BZQq7g4nI5lnZGRSo7uIWDWRxycuYBZdeHYk4mJMlLJ0ai7cM9QYwxjdYGmKd+IXxo5bAsXah5ajQ87rtOONHJ0/7vY5x0b0jUt0shhd8fwHcHIEhgb0sghWYswFqSRQx/DjI4m2ayQNHKEZi72eVWFdLOl0sihhYAZ4/yfD0flW2+RRg4AiC0o57rBmg5E5iUzA5LJMWMA0cToNzmeVKTrbwASLrxFEwAUBQd199RJLVUD4ikFRuRSQiOHdHIAQHQemDUUNOonL6opCmBEvFpGp/HzXEKQUg4ACM0CyYwC2/LWTnoTXHrIO2QbmZyEtHL00HT55i/OilQdUmY0pHhmWqYLu+vlZfTOraF1ksb712KpwdGMrgNzce9/8ZQCLXR8Pu1M3daElunCrLpomS5apnc+CWIpL30wnlKP/p42Ai+H3QXqFRdm1UG94o5l9fU8zIaBhYwnykJ6OmqWwMrRqLr4d8fB2x164WshYCGtIJNVA90EBU6Otzsudv+0A5P0G0sp+OSaiivXgidJYOQImhTDzIaBT7/QAtXkkJejUXVRfBZcKYaJpRTkbmqB6MCSluOfFw7K2+dIFyeOFgKWrqvIZGlPM5Gc57C7QGHTntgwVDR21xO/UXWRu6lBI7p+Q07dlunij6fW1IrRT73iorBpCxt+nwYpOVom7cKaBJSvmYwcdhcoPnNIFtKkaZlep5saZOTYfeVI0ZT4Ua+45DrfJORoVOkVjAh2X9GqOUnIsfOKxQC8ppXSQyJcjsP28XI5A5RLLMcRLMYgdndyaQajIlyOwxaNgqCESeSBES6HWaNREJSg0ikVLsc4Njgzk0G4HEFOhpkUc0S2XgqXYyFDoyCooIW87ZcUEC7HXFwJZJbUpMgsq2RWaUm0+LmbGvTQ+HM35uLKUUFH4oOboeOpswnZNAeTlvu3NYx7GL50XcXSZ8Kf1yNIJfsctoF62ctzsKyTC79/X0n/De/d7Jm5y98m0D830ZPJtgZ/nrJlfpgZH0sp0PXjPFMqNUYPUnIwtKBThzHkYDkYX1gOxheWg/GF5WB8YTkYX1gOxheWg/GF5WB8YTkYX1gOxheWg/GF5WB8+R8HsoANpRyX1AAAAABJRU5ErkJggg==" ,
             "pages":[
                 {
-                    
+                    "Widgit":{
+                        "Name": "Chatbot",
+                        "Properties":{
+                            "Questions": [
+                                "How to felling right now!",
+                                "What would you like to focus on today?",
+                                "Was there a situation or event that prompted this feeling."
+                            ]
+                        }
+                    },
+                    "button_Send":"Send"
                 }
-
             ]
         },
 

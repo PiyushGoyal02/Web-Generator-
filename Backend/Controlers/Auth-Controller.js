@@ -119,7 +119,7 @@ exports.Signin = async (req, res) => {
                 expiresIn:"2h"
             });
 
-            const CookiwOptions = {
+            const CookieOptions = {
                 expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
                 httpOnly:true   
             }
@@ -129,7 +129,7 @@ exports.Signin = async (req, res) => {
             // CheckEmail.password = undefined;       object mai remove kiya 
 
             // Cookie pass
-            res.cookie("Healee", token, CookiwOptions).status(200).json(
+            res.cookie("Healee", token, CookieOptions).status(200).json(
                 {
                     success:true,
                     message:"Login SuccessFully",

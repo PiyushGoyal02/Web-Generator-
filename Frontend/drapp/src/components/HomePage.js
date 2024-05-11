@@ -7,7 +7,7 @@ import { useState } from "react";
 import axios from "axios";
 
 
-function HomePage({ AccountType, jsondata}){
+function HomePage({ AccountType, jsondata}){    
 
     const navigator = useNavigate()
 
@@ -17,13 +17,13 @@ function HomePage({ AccountType, jsondata}){
     }
 
     // Route Ka Name Define Karna
-    const funcode = (name) => {
+    const NameToUrl = (name) => {
         return name.toLowerCase().replace(/ /g, '-');
     }
 
     // onclick karna Jab ham ek single pic par click kare
     function clickHandler (value){
-        const ValueName = funcode(value.name)
+        const ValueName = NameToUrl(value.name)
         const pageData = value.pages;
         if(pageData.length > 0){
             navigator(`/page1/${ValueName}`, { state: { pageData, ValueName, index : 0 } });
@@ -68,6 +68,7 @@ function HomePage({ AccountType, jsondata}){
                 )
 
                 const newData = responce.data
+                console.log(newData);
 
                 const updateData = newData.tiles.map((val) => ({
                     ...val,

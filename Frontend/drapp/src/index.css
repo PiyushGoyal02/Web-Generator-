@@ -566,3 +566,54 @@ button{
   align-items: center;
   gap: 10px;
 }
+
+.WidgitName{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.WidgitInputTag{
+  width: 50%;
+  padding: 0.8%;
+  border-radius: 10px;
+  font-size: larger;
+}
+
+.WidgitInputTag::placeholder{
+  font-size: larger;
+  color: #64748B;
+}
+
+.WidgitSendButton{
+  margin-left: 1%;
+  padding: 1%;
+  background-color: #8B5CF6;
+  border-style: none;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  width: 5%;
+  cursor: pointer;
+}
+
+.WidgitTextValueUI{
+  background-color: #E2E8F0;
+  color: #1E293B;
+  min-width: min-content;
+  padding: 1%;
+  border-radius: 50px;
+  font-size: large;
+}
+
+.question {
+  text-align: left;
+  color: blue;
+}
+
+.answer {
+  text-align: right;
+  color: green;
+}
