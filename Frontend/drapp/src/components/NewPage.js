@@ -126,48 +126,78 @@ function NewPage(){
                 <p className="intro">{currentPage ? currentPage.sub_heading : ""}</p>
                 <p className="introDiscription" dangerouslySetInnerHTML={{ __html: formatDescription(currentPage.description) }}></p>
 
-                {/* <p>{questions[currentQuestionIndex]}</p> */}
-                {/* <p>{questions[currentQuestionIndex[1]]}</p> */}
 
-                {/* <div className="displayValueUIDiv">
-                    {interactionHistory.map((value, index) => (
-                    <p className="WidgitTextValueUI" key={index}>{value}</p> // Display each value in a list item
-                    ))}
-                </div> */}
+                <div className="Widgi-Button-Input-Para">
 
-                {/* <div>
-                    {
-                        interactionHistory.map((item, idx) => {
-                            <p key={idx}>{item}</p>
-                        })
+                    {/* <div>
+                        {interactionHistory.map((item, idx) => (
+                            <p className="InputText" key={idx}>{item}</p>
+                        ))}
+                    </div> */}
+
+                    {/* <div>
+                    {interactionHistory.map((item, idx) => {
+                        const isQuestion = item.startsWith("Question:"); // Check if the item is a question
+                        return (
+                        <p className={isQuestion ? "questionText" : "answerText"} key={idx}>
+                            {item}
+                        </p>
+                        );
+                    })}
+                    </div> */}
+
+                    <div className="container">
+                        {interactionHistory.map((item, idx) => {
+                            const isQuestion = item.startsWith("Question:");
+                            return (
+                            <p className={isQuestion ? "questionText" : "answerText"} key={idx}>
+                                {item}
+                            </p>
+                            );
+                        })}
+                    </div>
+
+                    
+                    <div className="Widgit-InputTag-Button">
+                        
+                    {currentPage ? 
+                        (
+                            currentPage.inputTag ? (
+                                <input
+                                className="Widgit-Input-tag"
+                                type="text"
+                                value={inputValue}
+                                onChange={handleInputChange}
+                                placeholder="Type your answer here..."
+                                />
+                            ) : ''
+                        ) : <input
+                                className="Widgit-Input-tag"
+                                type="text"
+                                value={inputValue}
+                                onChange={handleInputChange}
+                                placeholder="Type your answer here..."
+                            />
                     }
-                    {currentQuestionIndex < questions.length}
+
+                    {currentPage ? 
+                        (
+                            currentPage.button_Send ? (
+                                <button className="Widgit-Send-Button" onClick={handleSubmitAnswer}>{currentPage.button_Send}</button> 
+                            ) : ''
+                        ) : <button className="Widgit-Send-Button" onClick={handleSubmitAnswer}>{currentPage.button_Send}</button> 
+                    }
+                    </div>
                 </div>
 
-                <div>
-                    <input placeholder="type your answer..." className="WidgitInputTag" type="text" value={inputValue} onChange={ChangeHandler}></input>
-                    <button className="WidgitSendButton" onClick={handleSubmitAnswer}>{currentPage ? currentPage.button_Send : ""}</button>
-                </div> */}
+                {currentPage ? 
+                    (
+                        currentPage.button_label ? (
+                            <button className="start-excer" onClick={handleNext}>{currentPage.button_label}</button> 
+                        ) : ''
+                    ) : <button className="start-excer" onClick={handleNext}>{currentPage.button_label}</button> 
+                }
 
-
-            <div>
-                {interactionHistory.map((item, idx) => (
-                    <p key={idx}>{item}</p>
-                ))}
-                {currentQuestionIndex < questions.length && (
-                    <>
-                        <input
-                            type="text"
-                            value={inputValue}
-                            onChange={handleInputChange}
-                            placeholder="Type your answer here..."
-                        />
-                        <button onClick={handleSubmitAnswer}>Submit</button>
-                    </>
-                )}
-            </div>
-
-                <button onClick={handleNext} className="start-excer" >{currentPage ? currentPage.button_label : ""}</button>
             </div>
         </div>
     )

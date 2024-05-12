@@ -198,7 +198,7 @@ button{
 
 .start-excer{
   margin-left: 8%;
-  margin-top: 3%;
+  /* margin-top: 3%; */
   padding: 1%;
   background-color: #8B5CF6;
   border-style: none;
@@ -608,12 +608,112 @@ button{
   font-size: large;
 }
 
-.question {
-  text-align: left;
-  color: blue;
+.InputTextWidgit{
+  border: 2px solid black;
+  padding: 1%;
+  font-size: 22px;
+  gap: 8px;
+  background-color: #E2E8F0;
+  color: #1E293B;
+  border-radius: 50px;
+  border-style: none;
 }
 
-.answer {
-  text-align: right;
-  color: green;
+.Widgit-InputTag-Button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3%;
 }
+
+/* .questionText { 
+  font-weight: bold; 
+  margin-bottom: 5px;
+  text-align: left;
+  border: 2px solid black;
+  padding: 1%;
+  font-size: 22px;
+  gap: 8px;
+  background-color: #E2E8F0;
+  color: #1E293B;
+  border-radius: 50px;
+  border-style: none;
+  max-width: fit-content;
+}
+
+.answerText {
+  font-style: italic;
+  margin-bottom: 10px;
+  text-align: right;
+  border: 2px solid black;
+  padding: 1%;
+  font-size: 22px;
+  gap: 8px;
+  background-color: #E2E8F0;
+  color: #1E293B;
+  border-radius: 50px;
+  border-style: none;
+  max-width: fit-content;
+} */
+
+
+/* CSS for the container that holds the questions and answers */
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.questionText { 
+  font-weight: bold; 
+  margin-bottom: 5px;
+  text-align: left;
+  padding: 1%;
+  font-size: 22px;
+  background-color: #E2E8F0;
+  color: #1E293B;
+  border-radius: 50px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.answerText { 
+  font-style: italic;
+  margin-bottom: 10px;
+  text-align: right;
+  padding: 1%;
+  font-size: 22px;
+  background-color: #E2E8F0;
+  color: #1E293B;
+  border-radius: 50px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.Widgi-Button-Input-Para{
+  overflow-y: auto;
+}
+
+.Widgit-Input-tag{
+  padding: 1%;
+  width: 40%;
+  border-radius: 20px;
+  background-color: #ECE6F0;
+  border-style: none;
+  font-size: larger;
+  color: #49454F;
+}
+
+.Widgit-Send-Button{
+  margin-left: 1%;
+  /* margin-top: 3%; */
+  padding: 1%;
+  background-color: #8B5CF6;
+  border-style: none;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  width: 10%;
+  cursor: pointer;
+}
+
