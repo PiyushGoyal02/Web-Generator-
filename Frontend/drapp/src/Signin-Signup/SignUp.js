@@ -51,6 +51,9 @@ function SignUp ({ AccountType,setAccountType }){
             setMessage(response.data.message || "Signup successful!");
             toast.success(response.data.message || "SignUp Successfully..")
             navigate("/MenuCard")
+
+            const token = response.data.token
+            localStorage.setItem('token', token);    // Data Stored On Browser
         } catch (error) {
             console.error("Error during signup:", error.response ? error.response.data : error.message);
             toast.error(error.message)

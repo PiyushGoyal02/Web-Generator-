@@ -40,16 +40,21 @@ function SignIn(){
             formdata,
             {
               headers: {
-                "Content-Type": "application/json"   //Accept
+                "Content-Type": "application/json"
               }
             }
           );
+
           console.log("Sign-in successful:", response.data);
           setMessage(response.data.message || "Sign-in successful!");
           toast.success(response.data.message || "SignIn Successfully")
           // Navigate to the homepage after sign-in
           navigate("/MenuCard");
-        } catch (error) {
+            const token = response.data.token
+            // console.log(token , "tokennn");
+            localStorage.setItem('token', token);
+        } 
+        catch (error) {
           toast.error(error.message)
           console.error("Error during sign-in:", error.response ? error.response.data : error.message);
         }

@@ -7,6 +7,7 @@ import text from '../Assets/Text.png'
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
+import axios from "axios";
 
 
 function NewPage(){
@@ -47,13 +48,6 @@ function NewPage(){
     const [questions, setQuestions] = useState([]);       // Question ko store Karega jo user sai puchne hai
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);  // yai question ka index track krte hai ki abhi aap konse question par hai
 
-    // useEffect(() => {
-    //     const widgit = pageData[index]?.Widgit;
-    //     if (widgit && widgit.Name === "Chatbot") {
-    //         setQuestions(widgit.Properties.Questions);
-    //     }
-    // }, [pageData, index]);
-
     useEffect(() => {
         if (pageData[index] && pageData[index].Widgit && pageData[index].Widgit.Name === "Chatbot") {
             const newQuestions = pageData[index].Widgit.Properties.Questions;
@@ -66,16 +60,7 @@ function NewPage(){
     }, [pageData, index]);      // Updated Value pageData || index value
 
 
-
-    // InputTag Send Button Click  
-    // const handleButtonClick = () => {
-    //     if(inputValue.trim() !== ""){
-    //         setInteractionHistory([...interactionHistory, inputValue])
-    //         setInputValue('');
-    //     }
-    // }
-
-    const handleSubmitAnswer = () => {
+    const handleSubmitAnswer = async () => {
         if (inputValue.trim() !== "") {
             // Update interaction history with the user's answer
             const updatedHistory = [...interactionHistory, `Answer: ${inputValue}`];
@@ -91,6 +76,27 @@ function NewPage(){
             }
             
             setInteractionHistory(updatedHistory);
+
+            const token = localStorage.getItem("token");
+            console.log(token, "token")
+
+            try {
+                const response = await axios.post(`http://localhost:4000/api/v1/qua/QuestionAns`, {
+                    question: questions[currentQuestionIndex],
+                    answer: inputValue,
+                }, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${token}` // Send token in Authorization header
+                    },
+                    // body: JSON.stringify({ question: questions[currentQuestionIndex], answer: inputValue }),
+                });
+                console.log(response,"response")
+            }catch(error){
+                console.error(error);
+            }
+        }else{
+            alert("Please login to submit your answer.");
         }
     };
 
@@ -128,23 +134,6 @@ function NewPage(){
 
 
                 <div className="Widgi-Button-Input-Para">
-
-                    {/* <div>
-                        {interactionHistory.map((item, idx) => (
-                            <p className="InputText" key={idx}>{item}</p>
-                        ))}
-                    </div> */}
-
-                    {/* <div>
-                    {interactionHistory.map((item, idx) => {
-                        const isQuestion = item.startsWith("Question:"); // Check if the item is a question
-                        return (
-                        <p className={isQuestion ? "questionText" : "answerText"} key={idx}>
-                            {item}
-                        </p>
-                        );
-                    })}
-                    </div> */}
 
                     <div className="container">
                         {interactionHistory.map((item, idx) => {

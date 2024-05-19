@@ -21,10 +21,29 @@ function HomePage({ AccountType, jsondata}){
         return name.toLowerCase().replace(/ /g, '-');
     }
 
+    // var ValueName;
     // onclick karna Jab ham ek single pic par click kare
-    function clickHandler (value){
+    const clickHandler = async (value) => {
         const ValueName = NameToUrl(value.name)
         const pageData = value.pages;
+
+            const token = localStorage.getItem("token");
+            console.log(token, "token")
+            try{
+                const TileResponse = await axios.post(`http://localhost:4000/api/v1/tile/storeTileName`,
+                    {tileName: value.name},
+                    {
+                        headers:{
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        }
+                    }
+                );
+                console.log('Tile name stored successfully:', TileResponse.data);
+    
+            }catch(error){
+                console.error('Error storing tile name:', error);
+            }
         if(pageData.length > 0){
             navigator(`/page1/${ValueName}`, { state: { pageData, ValueName, index : 0 } });
         }
