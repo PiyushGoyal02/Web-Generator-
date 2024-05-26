@@ -24,14 +24,16 @@ dataBaseConnect.DBConnect();
 // User Routes
 const userRoute = require("./Routes/UserRoute");
 const QuaAns = require ("./Routes/QuaAnsRoute");
-const tilename = require("./Routes/TileNameRoute");
+const tileName = require("./Routes/TileNameRoute");
+// const timeDate = require("./Routes/TimeDateRoute");
 
 app.use("/api/v1/auth", userRoute);
 app.use("/api/v1/qua",QuaAns);
-app.use("/api/v1/tile", tilename);
+app.use("/api/v1/tile", tileName);
+// app.use("/api/v1/dt",timeDate);
 
 app.get("/", (req, res) => {
-    res.send("Default Route Starting");
+    res.send("Default Route Starting Healee Dr.App");
 });
 
 app.listen(PORT, () => {

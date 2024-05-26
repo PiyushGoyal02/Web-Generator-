@@ -717,3 +717,57 @@ button{
   cursor: pointer;
 }
 
+
+/* My History Route */
+
+.MyHistoryMainDiv{
+  margin: 2%;
+  border: 2px solid #dadada;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+.MyHistory{
+  font-size: 40px;
+  font-weight: bold;
+  margin-left: 0.5%;
+}
+
+.myHistorySingleBox{
+  margin-top: 2%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.5%;
+  border: 1px solid black;
+  border-radius: 10px;
+  /* border-style: none; */
+}
+
+.myHistoryImages{
+  width: 4%;
+  border-radius: 10px;
+}
+
+.Name-date-icon-time{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.Date-Icon-Time{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* gap: px; */
+}
+
+.myHistoryName-Date-Icon{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

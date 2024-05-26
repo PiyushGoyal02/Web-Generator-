@@ -40,11 +40,13 @@ const userSchema = new mongoose.Schema(
             },
         ],
 
-        tileName:[
+        tile:[
             {
-                type:String
+                tileName:String,
+                time:String,
+                date:String
             }
-        ]
+        ],
     }
 )
 

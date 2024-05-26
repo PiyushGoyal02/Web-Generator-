@@ -6,6 +6,17 @@ const tileModelSchema = new mongoose.Schema({
     required:true
   },
 
+  date:{
+    type:String,
+    required: true
+  },
+
+  time:{
+    type:String,
+    required:true
+  },
+
+  // These Using User ID
   user:{
     type:mongoose.Schema.Types.ObjectId,
     ref:"User",

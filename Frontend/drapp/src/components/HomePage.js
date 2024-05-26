@@ -7,9 +7,18 @@ import { useState } from "react";
 import axios from "axios";
 
 
-function HomePage({ AccountType, jsondata}){    
+function HomePage({ AccountType, jsondata}){ 
 
     const navigator = useNavigate()
+    const [sharedValue,setSharedValue] = useState({
+        Name:'',
+        image:''
+    })
+
+    console.log(sharedValue,"sharedValue");
+
+    let date = ('');
+    let time = ('');
 
     //  LeftArrow Click BackFunction
     function ClickBackHandler(){
@@ -21,37 +30,75 @@ function HomePage({ AccountType, jsondata}){
         return name.toLowerCase().replace(/ /g, '-');
     }
 
-    // var ValueName;
     // onclick karna Jab ham ek single pic par click kare
     const clickHandler = async (value) => {
+
         const ValueName = NameToUrl(value.name)
         const pageData = value.pages;
 
-            const token = localStorage.getItem("token");
-            console.log(token, "token")
-            try{
-                const TileResponse = await axios.post(`http://localhost:4000/api/v1/tile/storeTileName`,
-                    {tileName: value.name},
-                    {
-                        headers:{
-                            'Content-Type': 'application/json',
-                            'Authorization': `Bearer ${token}`
-                        }
+        // these are using Option for manegment.
+        const Options = {
+            hour:'numeric',
+            minute:'numeric',
+            second:'numeric',
+            hour12:true
+        }
+
+        // These Using localStorage can we save data on Browser
+        const token = localStorage.getItem("token");
+
+        // Current Time.
+        time = new Date().toLocaleTimeString('en-US', Options);
+
+        // Current Date.
+        date = new Date().toLocaleDateString();
+        // MyHistoryClickHandler(time, date, value.name, value.img_url);
+
+        setSharedValue({Name:value.name, image:value.img_url});
+
+        try{
+            const TileResponse = await axios.post(`http://localhost:4000/api/v1/tile/storeTileName`,{
+                tileName:value.name,
+                time:time,
+                date:date
+            },
+                {
+                    headers:{
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
                     }
-                );
-                console.log('Tile name stored successfully:', TileResponse.data);
-    
-            }catch(error){
-                console.error('Error storing tile name:', error);
-            }
+                }
+            );
+            console.log('Tile name stored successfully:', TileResponse.data);
+
+            // MyHistoryClickHandler(navigator);
+            // MyHistoryClickHandler(time, date, value.name, value.img_url);
+
+        }catch(error){
+            console.error('Error storing tile name:', error);
+        }
         if(pageData.length > 0){
             navigator(`/page1/${ValueName}`, { state: { pageData, ValueName, index : 0 } });
         }
     }
+
+    const MyHistoryClickHandler = () => {
+        const {Name, image} = sharedValue
+        const time = new Date().toLocaleTimeString('en-US', {
+            hour: 'numeric',
+            minute: 'numeric',
+            second: 'numeric',
+            hour12: true
+        });
+        const date = new Date().toLocaleDateString();
+        const existingHistory = JSON.parse(localStorage.getItem('history')) || [];
+        const newHistoryEntry = { Name, image, time, date };
+        localStorage.setItem('history', JSON.stringify([...existingHistory, newHistoryEntry]));
+        navigator('/myHistory');
+    };
     
     // Input Tag Value Fetch Karna
     const [query, setQuery] = useState("");
-
 
     // JSON.parse  <== Using Json String Data To Convert Array Ya Object Data
     const [tilesData, setNewJSONData] = useState(() => {      // using useState with callback function
@@ -71,7 +118,6 @@ function HomePage({ AccountType, jsondata}){
         const randomIndex = Math.floor(Math.random() * externalImgUrls.length);
         return externalImgUrls[randomIndex];
     };
-
 
     const InputHandlerEnterKeyPress = async (event) => {
 
@@ -94,7 +140,6 @@ function HomePage({ AccountType, jsondata}){
                     img_url: val.img_url || getRandomImageUrl()
                 }));
 
-
                 console.log(updateData, "updateData")
 
                 const mergeData = {
@@ -113,7 +158,6 @@ function HomePage({ AccountType, jsondata}){
         }
     };
 
-    
     return (
         <div>
 
@@ -157,7 +201,8 @@ function HomePage({ AccountType, jsondata}){
             </div>
             
             <div>
-            <input
+                <button onClick={MyHistoryClickHandler}>My History</button>
+                <input
                     className="inputTag"
                     placeholder="Type Here to make changes or add new questions"
                     value={query}
@@ -166,11 +211,13 @@ function HomePage({ AccountType, jsondata}){
                 />
                 {/* <input onKeyDown={InputHandlerEnterKeyPress} onChange={(event) => setQuery(event.target.value)} value={query} name="InputTagValue" className="inputTag" placeholder="Type Here to make changes or add new questions"></input> */}
             </div>
-
         </div>
-        
         
     )
 }
 
 export default HomePage;
+
+
+
+
