@@ -6,6 +6,12 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 8000;
 
+const path = require("path");
+
+const _dirname = path._dirname("");
+const buildPath = path.join(_dirname, "../drapp/build");
+app.use(express.static(buildPath));
+
 // CORS Options
 const corsOptions = {
     origin: "http://localhost:3000",

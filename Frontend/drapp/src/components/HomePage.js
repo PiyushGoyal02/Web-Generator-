@@ -3,24 +3,20 @@ import black from '../Assets/BlackMan.jpg'
 import sign from '../Assets/Sign.png'
 import text from '../Assets/Text.png'
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-
 
 function HomePage({ AccountType, jsondata}){ 
 
     const navigator = useNavigate()
-    const [sharedValue,setSharedValue] = useState({
-        Name:'',
-        image:''
-    })
-
-    console.log(sharedValue,"sharedValue");
+    const [query, setQuery] = useState("");      // Input Tag Value Fetch Karna
+    const [ImageTextData, setImageTextData] = useState({time:"", date:"", Name:"", image:""});
+    console.log(ImageTextData,"ImageTextDataResponse")
 
     let date = ('');
     let time = ('');
-
-    //  LeftArrow Click BackFunction
+    
+    //  LeftArrow Click BackFunction One Step Back..
     function ClickBackHandler(){
         navigator(-1);
     }
@@ -32,29 +28,20 @@ function HomePage({ AccountType, jsondata}){
 
     // onclick karna Jab ham ek single pic par click kare
     const clickHandler = async (value) => {
-
         const ValueName = NameToUrl(value.name)
         const pageData = value.pages;
 
-        // these are using Option for manegment.
+        // these are using Option for How many types Time Show on UI..
         const Options = {
             hour:'numeric',
             minute:'numeric',
             second:'numeric',
             hour12:true
         }
-
-        // These Using localStorage can we save data on Browser
-        const token = localStorage.getItem("token");
-
-        // Current Time.
-        time = new Date().toLocaleTimeString('en-US', Options);
-
-        // Current Date.
-        date = new Date().toLocaleDateString();
-        // MyHistoryClickHandler(time, date, value.name, value.img_url);
-
-        setSharedValue({Name:value.name, image:value.img_url});
+        const token = localStorage.getItem("token");    // These Using localStorage can we save data on Browser
+        time = new Date().toLocaleTimeString('en-US', Options);    // Current Time.
+        date = new Date().toLocaleDateString();   // Current Date.
+        setImageTextData({Name:value.name, image:value.img_url, time:time, date:date});
 
         try{
             const TileResponse = await axios.post(`http://localhost:4000/api/v1/tile/storeTileName`,{
@@ -71,9 +58,6 @@ function HomePage({ AccountType, jsondata}){
             );
             console.log('Tile name stored successfully:', TileResponse.data);
 
-            // MyHistoryClickHandler(navigator);
-            // MyHistoryClickHandler(time, date, value.name, value.img_url);
-
         }catch(error){
             console.error('Error storing tile name:', error);
         }
@@ -82,24 +66,22 @@ function HomePage({ AccountType, jsondata}){
         }
     }
 
+    useEffect(() => {
+        if (ImageTextData.Name && ImageTextData.image && ImageTextData.time && ImageTextData.date) {
+            MyHistoryClickHandler();
+        }
+    }, [ImageTextData]); // This effect runs when historyData changes
+    
+
     const MyHistoryClickHandler = () => {
-        const {Name, image} = sharedValue
-        const time = new Date().toLocaleTimeString('en-US', {
-            hour: 'numeric',
-            minute: 'numeric',
-            second: 'numeric',
-            hour12: true
-        });
-        const date = new Date().toLocaleDateString();
+        const {time, date, Name, image} = ImageTextData;
         const existingHistory = JSON.parse(localStorage.getItem('history')) || [];
         const newHistoryEntry = { Name, image, time, date };
         localStorage.setItem('history', JSON.stringify([...existingHistory, newHistoryEntry]));
         navigator('/myHistory');
     };
     
-    // Input Tag Value Fetch Karna
-    const [query, setQuery] = useState("");
-
+    
     // JSON.parse  <== Using Json String Data To Convert Array Ya Object Data
     const [tilesData, setNewJSONData] = useState(() => {      // using useState with callback function
         const storedData = sessionStorage.getItem('tilesData');    // Reading a data using sessionStorage.getItem
